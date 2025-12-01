@@ -1,0 +1,168 @@
+.departments-section {
+  padding: 50px 20px;
+}
+
+.departments-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #425c86;
+  margin-bottom: 8px;
+}
+
+.departments-subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+/* Desktop Grid */
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.department-card {
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #f4d0d0;
+  border-radius: 14px;
+  transition: 0.3s ease;
+}
+
+.department-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured */
+.featured-badge {
+  font-size: 13px;
+  color: #c4585f;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.featured-card {
+  border-color: #ffcaca;
+}
+
+.department-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #425c86;
+  margin-bottom: 6px;
+}
+
+.department-desc {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ----------------------------- */
+/* MOBILE CAROUSEL */
+/* ----------------------------- */
+.mobile-view {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-view {
+    display: none;
+  }
+
+  .mobile-view {
+    display: block;
+  }
+
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 10px;
+    scroll-behavior: smooth;
+  }
+
+.carousel-card {
+  scroll-snap-align: start;
+}
+
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-card {
+    flex: 0 0 90%;
+    /* scroll-snap-align: center; */
+    padding: 22px;
+    background: white;
+    border: 1px solid #f4d0d0;
+    border-radius: 14px;
+  }
+
+  /* Pagination dots */
+  .carousel-dots {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  .dot.active {
+    background: #425c86;
+    width: 12px;
+    height: 12px;
+  }
+}                           
+
+
+/* Slide-in left animation */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide-up fade animation */
+.slide-up-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 1s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,400 @@
+/*
+----------------------------
+DOCTORS HERO SECTION
+----------------------------*/
+.doctors-hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;                 /* Start hidden */
+  transform: translateX(-50px);  /* Start slightly left */
+  transition: all 1.2s ease-out;
+
+}
+
+.doctors-hero.show {
+  opacity: 1;
+  transform: translateX(0);   /* Slide to natural position */
+}
+
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(66, 92, 134, 0.8);
+/* background-color: rgba(203, 220, 231, 0.7); */
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  /* color: #000; */
+  color: #CDA75E;
+}
+
+.content p {
+  font-size: 1.2rem;
+  color: #beb8b8;
+}
+
+@media (max-width: 768px) {
+    .doctors-hero {
+        height: 40vh;
+    }
+    .content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+----------------------------
+DOCTORS CARDIOLOGY SECTION
+----------------------------*/
+
+.cardio-section {
+  padding: 60px 20px;
+  background: #fdf9f8;
+  text-align: center;
+
+  /* initial hidden state for whole section animation */
+  opacity: 1; 
+}
+
+/* container */
+.cardio-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* initial animation states */
+.cardio-featured-tag,
+.cardio-title,
+.cardio-subtitle {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s ease-out;
+}
+
+/* stagger when section enters view */
+.cardio-show .cardio-featured-tag {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.2s;
+}
+
+.cardio-show .cardio-title {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.4s;
+}
+
+.cardio-show .cardio-subtitle {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.6s;
+}
+
+/* title styles */
+.cardio-title {
+  font-size: 42px;
+  color: #203354;
+}
+
+.cardio-highlight {
+  color: #c4585f;
+}
+
+.cardio-subtitle {
+  color: #5a7184;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.cardio-featured-tag {
+  display: inline-block;
+  background: #e27b33;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+
+/* CARD animations */
+.cardio-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+/* initial card state */
+.cardio-cards-wrapper .doctor-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* animate cards after content */
+.cardio-show .doctor-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger delay */
+.cardio-cards-wrapper .doctor-card:nth-child(1) { transition-delay: 0.8s; }
+.cardio-cards-wrapper .doctor-card:nth-child(2) { transition-delay: 1s; }
+.cardio-cards-wrapper .doctor-card:nth-child(3) { transition-delay: 1.2s; }
+.cardio-cards-wrapper .doctor-card:nth-child(4) { transition-delay: 1.4s; }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .cardio-section {
+    padding: 30px 20px;
+  }
+
+  .cardio-title {
+    font-size: 32px;
+  }
+
+  .cardio-subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .cardio-cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .doctor-card {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+----------------------------
+DOCTORS MEMBERS SECTION
+----------------------------*/
+
+/* MAIN SECTION */
+.dm-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.dm-title {
+  font-size: 42px;
+  color: #425c86;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.dm-subtitle {
+  font-size: 18px;
+  color: #6b6b6b;
+  margin-bottom: 20px;
+}
+
+/* FILTER BAR */
+.dm-filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* CARDS WRAPPER */
+.dm-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* SEARCH + DROPDOWN WRAPPER */
+.dm-search-dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+/* SEARCH BOX */
+.dm-search-box {
+  display: flex;
+  align-items: center;
+  background: #feebc9;
+  padding: 0px 14px;
+  border-radius: 28px;
+  flex: 1;
+  border: 1px solid #ccc;
+}
+
+.dm-search-box input {
+  border: none;
+  outline: none;
+  background: none;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.dm-search-icon {
+  font-size: 18px;
+}
+
+/* DROPDOWN BUTTON */
+.dm-dropdown-toggle {
+  /* background: #425c86; */
+  background-color: transparent;
+  color: #c4585f;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* DROPDOWN MENU */
+.dm-dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: rgb(66, 92, 134, 0.4);
+  /* background-color: #fdfafa; */
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+/* Hide vertical scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.dm-dropdown-menu::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* DROPDOWN ITEM */
+.dm-dropdown-item {
+  padding: 5px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-bottom: 1px solid #425c86;
+}
+
+.dm-dropdown-item:hover {
+  background: #f1f5ff;
+}
+
+
+/* Responsive for Mobile */
+@media (max-width: 600px) {
+  
+.dm-title {
+  font-size: 32px;
+}
+
+.dm-subtitle {
+  font-size: 16px;
+}
+
+  .dm-subtitle {
+    margin-bottom: 0px;
+  }
+  .dm-search-dropdown-wrapper {
+    max-width: 80%;  /* Take almost full width on small screens */
+    flex-direction: column; /* Stack search box and button vertically if needed */
+    gap: 8px;
+    margin-bottom: 0px;
+  }
+
+  .dm-search-box {
+    width: 100%; /* Ensure search box fills container */
+    padding: 0px 10px;
+  }
+
+  .dm-dropdown-toggle {
+    text-align: center;
+    font-size: 18px;
+    padding: 8px 0;
+  }
+
+  .dm-dropdown-menu {
+    width: 100%; /* Dropdown menu should also fit */
+    top: 40px;
+  }
+}
+
+
+
+

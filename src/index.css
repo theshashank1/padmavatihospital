@@ -1,0 +1,16 @@
+:root {
+  --primary: #425c86;   /* 60% */
+  --secondary: #cda75e; /* 30% */
+  --accent: #c4585f;    /* 10% */
+}
+
+/* Headings use LORA font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lora", serif;
+}
+
+/* Body text uses ROBOTO font */
+body, p, a, li, div {
+  font-family: "Roboto", sans-serif;
+}
+

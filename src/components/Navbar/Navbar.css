@@ -1,0 +1,320 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 0px; /* Height of navbar to prevent content overlap */
+}
+
+.pmc-navbar {
+  width: 100%;        
+  background: #425c86;
+  padding: 25px 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 18px 0;
+
+  /* GLASSMORPHISM */
+  background: rgba(66, 92, 134, 0.45);     
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(205, 167, 94, 0.2);  
+}
+
+
+.pmc-container {
+  width: 95%;
+  max-width: 1350px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.pmc-logo img {
+  height: 50px;
+}
+
+/* DESKTOP NAV */
+.desktop-only {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.pmc-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.pmc-nav-links li a {
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.pmc-nav-links li a:hover {
+  color: #425c86;
+}
+
+/* BOOK APPOINTMENT BTn */
+.appointment-btn {
+  padding: 10px 18px;
+  /* background: linear-gradient(135deg, #C4585F, #CDA75E); */
+  background: linear-gradient(135deg, #C4585F, #C4585F);
+  color: #ebeae7 !important;
+  border-radius: 10px;
+  border: none;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+}
+
+/* Hover Effect */
+.appointment-btn:hover {
+  background: transparent;
+  color: #C4585F !important;
+  border: 1px solid #C4585F;
+  /* border: 2px solid #ebeae7; */
+  box-shadow: 0 0 5px rgb(196, 88, 95, 0.6);
+}
+  
+
+/* DROPDOWN */
+.pmc-dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  color: #000000;
+  cursor: pointer;
+  padding: 20px 0px 25px 0px;
+  font-size: 17px;
+  /* border: 1px solid black; */
+}
+
+.dropbtn:hover, .dropbtn.active {
+  color: #425c86;
+}
+
+.dropdown-menu {
+  display: none;
+  border: 1px solid black;
+  position: absolute;
+  top: 40px;             
+  left: 50%;
+  transform: translateX(-35%);
+  padding: 20px;
+  background: #fff;
+  /* width: 750px;         */
+  max-width: 95vw;        
+  z-index: 9999;
+  padding: 20px;
+  border-radius: 12px;
+  /* Glass effect */
+  /* background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(55px);
+  -webkit-backdrop-filter: blur(55px); */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* gap: 12px; */
+  gap: 10px 20px;
+  width: 750px; 
+
+}
+
+.grid-4 a {
+  color: #425c86!important;
+  text-decoration: none;
+  font-size: 15px;
+  /* padding: 5px 0; */ /* increases clickable area */
+}
+
+.grid-4 a:hover {
+  color: #C4585F!important;
+}
+
+/* MOBILE */
+.pmc-menu-icon {
+  display: none;
+  font-size: 28px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 74px;
+  left: 0;
+  width: 100%;
+  background: #425c86;
+  padding: 20px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-menu li a{
+  color: #ebeae7;
+}
+
+.mobile-menu.show {
+  display: flex;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.mobile-submenu {
+  display: none;
+  background: rgba(255,255,255, 0.1);
+  padding-left: 15px;
+  margin-top: 8px;
+  border: 1px solid rgba(255,255,255, 0.2);
+  border-radius: 10px;
+  /* NEW: scrollable */
+  max-height: 250px;       /* adjust as needed */   
+  overflow-y: auto;
+}
+
+
+/* Optional: nice scroll styling */
+.mobile-submenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mobile-submenu::-webkit-scrollbar-thumb {
+  background-color: rgba(196,88,95,0.6);
+  border-radius: 3px;
+}
+
+.mobile-submenu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.mobile-submenu.show {
+  display: block;
+}
+
+.mobile-submenu li {
+  margin: 10px 0;
+  list-style-type: none;
+}
+
+.mobile-submenu li a {
+  color: #ebeae7;
+}
+
+.mobile-dropbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #ebeae7;
+  font-size: 17px;
+}
+
+.mobile-dropbtn.active {
+  color: #CDA75E;
+}
+
+/* BOOK APPOINTMENT BTn */
+.appointment-mobile-btn {
+  padding: 8px 18px;
+  background: linear-gradient(135deg, #C4585F, #C4585F);
+  color: #ebeae7 !important;
+  border-radius: 10px;
+  border: none;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+}
+.appointment-mobile-btn:active {
+  background: transparent;
+  color: #C4585F !important;
+  border: 1px solid #C4585F;
+  box-shadow: 0 0 5px rgb(196, 88, 95, 0.6);
+}
+
+/* ---------------- RESPONSIVE DROPDOWN ---------------- */
+
+@media (max-width: 1100px) {
+  .dropdown-menu {
+    width: 550px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-top: 0px; /* Height of navbar to prevent content overlap */
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+
+   .desktop-only {
+    display: none;
+  }
+
+  .pmc-menu-icon {
+    display: block;
+  }
+
+}
+
+/* Remove mobile tap highlight */
+a, Link, span, button, .appointment-mobile-btn {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+
+
+
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px 20px;
+  width: fit-content; 
+}
+
+.grid-2 a {
+  color: #425c86 !important;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.grid-2 a:hover {
+  color: #C4585F !important;
+}
+
+
+
+
+

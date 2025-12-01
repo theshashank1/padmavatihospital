@@ -1,0 +1,247 @@
+/* ---------------------------------------------------
+   HERO SECTION (Gradient Background)
+-----------------------------------------------------*/
+
+.ba-hero {
+  width: 100%;
+  padding: 80px 0px;
+ background: linear-gradient(135deg, #425c86, #C4585F);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.ba-container {
+  max-width: 800px;
+}
+
+.ba-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.ba-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+  .ba-hero {
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .ba-title {
+    font-size: 34px;
+  }
+
+  .ba-subtitle {
+    font-size: 16px;
+  }
+}
+
+
+/* ---------------------------------------------------
+   MAIN SECTION (Left Info + Right Form)
+-----------------------------------------------------*/
+
+.ba-main {
+  padding: 60px 6%;
+}
+
+.ba-wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* ---------------- LEFT SECTION ---------------- */
+
+.ba-left h2 {
+  color: #425c86;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ba-desc {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.ba-points {
+  display: grid;
+  gap: 15px;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f7fb;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border-left: 4px solid #CDA75E;  /* your secondary color */
+}
+
+.point .icon {
+  font-size: 22px;
+  color: #425c86;
+  flex-shrink: 0;
+}
+
+/* Image box */
+.ba-image-box {
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ba-image-box img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ---------------- RIGHT FORM SECTION ---------------- */
+
+.ba-right h2 {
+  color: #425c86;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.ba-form {
+  display: grid;
+  gap: 15px;
+}
+
+.ba-form input,
+.ba-form select,
+.ba-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.ba-form input:focus,
+.ba-form select:focus,
+.ba-form textarea:focus {
+  border-color: #425c86;
+  box-shadow: 0 0 5px rgba(66, 92, 134, 0.3);
+}
+
+.ba-form button {
+  background: #C4585F;
+  color: white;
+  padding: 14px;
+  border: 1px solid #C4585F;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ba-form button:hover {
+  background: transparent; /* accent color */
+  border: 1px solid #C4585F;
+  transform: translateY(-4px);
+  color: #C4585F;
+  box-shadow: 1px 2px 4px #C4585F;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .ba-main{
+    padding: 30px 6%;
+  }
+
+  .ba-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .ba-left h2,
+  .ba-right h2 {
+    text-align: center;
+  }
+}
+
+/* ---------------------------------------------------
+   3 INFO CARDS SECTION (UNIFORM STYLE)
+-----------------------------------------------------*/
+
+.ba-info-cards {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.info-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  border-top: 4px solid #425c86;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Round gradient icon for ALL CARDS */
+.card-icon-round {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+
+  background: linear-gradient(135deg, #425c86, #C4585F);
+}
+
+/* Text */
+.info-card h3 {
+  font-size: 18px;
+  color: #425c86;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ba-info-cards {
+    grid-template-columns: 1fr;
+  }
+}

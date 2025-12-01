@@ -1,0 +1,173 @@
+/* MAIN FOOTER */
+.pmc-footer {
+    background-color: #425c86;
+    color: #ebeae7;
+    padding: 50px 20px 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* GRID LAYOUT */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* COLUMN STYLE */
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* LOGO */
+.footer-logo {
+    width: 160px;
+    margin-bottom: 10px;
+}
+
+/* ADDRESS */
+.footer-address {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* COLUMN HEADINGS */
+.footer-heading {
+    font-size: 18px;
+    font-weight: 600;
+    color: #CDA75E;
+    margin-top: 10px;
+}
+
+/* SOCIAL MEDIA ICONS */
+.footer-social a {
+    color: #ebeae7;
+    font-size: 18px;
+    margin-right: 12px;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    color: #CDA75E;
+}
+
+/* QUICK LINKS + DEPARTMENTS */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links li a {
+    color: #ebeae7;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #CDA75E;
+}
+
+/* CONTACT ROW */
+.footer-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+/* ICONS */
+.footer-icon {
+    color: #CDA75E;
+    font-size: 18px;
+}
+
+/* VERTICAL LEGAL LINE */
+.vertical-line {
+    width: 3px;
+    height: 18px;
+    background-color: #CDA75E;
+}
+
+/* BOTTOM BAR */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    margin-top: 40px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.v-divider {
+    width: 2px;
+    height: 20px;
+    background-color: white;
+}
+
+/* ----------- RESPONSIVE ----------- */
+
+/* TABLET */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: left;
+        gap: 10px;
+    }
+
+    .footer-row {
+        justify-content: left;
+    }
+
+    .footer-social {
+        justify-content: left;
+        display: flex;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 12px;
+        font-size: 14px;
+    }
+
+    .v-divider {
+        display: none;
+    }
+}
+
+/* All footer links */
+.footer-links a,
+.footer-row a {
+    color: #eaeaea;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Hover effect */
+.footer-links a:hover,
+.footer-row a:hover {
+    color: #CDA75E;
+    /* your gold color */
+}
+
+/* To highlight active page */
+.footer-links a.active,
+.footer-row a.active {
+    color: #CDA75E !important;
+}

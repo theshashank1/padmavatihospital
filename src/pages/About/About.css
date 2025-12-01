@@ -1,0 +1,232 @@
+/* HERO */
+.about-hero {
+    background: linear-gradient(to right, #3a4f76, #5b7bb0);
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.about-hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* SECTION SPACING */
+.about-section,
+.mv-section,
+.values-section,
+.stats-section {
+    padding: 30px 40px 60px;
+}
+
+.section-title {
+    font-size: 36px;
+    text-align: center;
+    color: #425c86;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.section-text {
+    font-size: 18px;
+    color: #555;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* MISSION & VISION */
+/* .mv-section {
+    padding-left: 40px;
+    padding-right: 40px;
+} */
+
+.mv-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.mv-card {
+    position: relative;
+    padding: 40px 30px 30px 30px;
+    background: #fff;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.mv-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Icon circle at the top */
+.mv-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Specific colors for mission and vision */
+.mv-mission {
+    /* border-color: #4a0e2; */
+    border-color: #ebeae7;
+}
+
+.mv-mission .mv-icon {
+    background: linear-gradient(135deg, #c45857 0%, #425c86 100%);
+}
+
+.mv-vision {
+    border-color: #ebeae7;
+}
+
+.mv-vision .mv-icon {
+    background: linear-gradient(135deg, #c45857 0%, #425c86 100%);
+}
+
+/* Titles and paragraphs */
+.mv-card h3 {
+    font-size: 26px;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.mv-card p {
+    font-size: 16px;
+    color: #6b6b6b;
+    line-height: 1.6;
+}
+
+
+/* CORE VALUES */
+/* .values-section {
+    padding: 20px 40px 40px;
+} */
+.values-section-title {
+    font-size: 36px;
+    text-align: center;
+    color: #425c86;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.values-section-subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.value-card {
+    padding: 25px 20px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-card .icon {
+    font-size: 38px;
+    color: #cda75e;
+    margin-bottom: 12px;
+}
+
+.value-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.value-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* STATS SECTION */
+.stats-section {
+    background: #f4f9ff;
+    /* padding: 50px 0; */
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    text-align: center;
+    gap: 20px;
+}
+
+.stat-card h3 {
+    font-size: 36px;
+    color: #e27b33;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 34px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .section-text {
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+
+    .about-section,
+    .mv-section,
+    .values-section,
+    .stats-section {
+        padding: 20px 10px 20px;
+    }
+
+
+    .mv-card {
+        position: relative;
+        padding: 10px 20px;
+        background: #fff;
+        border-radius: 12px;
+        border: 2px solid transparent;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+    }
+
+    .mv-icon {
+        
+    }
+
+
+}
