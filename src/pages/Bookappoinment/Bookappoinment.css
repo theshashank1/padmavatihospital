@@ -4,9 +4,11 @@
 
 .ba-hero {
   width: 100%;
-  padding: 80px 0px;
- background: linear-gradient(135deg, #425c86, #C4585F);
+  /* padding: 80px 0px; */
+  background: linear-gradient(135deg, #425c86, #C4585F);
   color: white;
+  width: 100%;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,8 +38,9 @@
 /* ---------- Responsive Design ---------- */
 @media (max-width: 768px) {
   .ba-hero {
-    padding: 80px 20px;
+    /* padding: 80px 20px; */
     text-align: center;
+    height: 40vh;
   }
 
   .ba-title {
@@ -46,6 +49,7 @@
 
   .ba-subtitle {
     font-size: 16px;
+    padding: 10px;
   }
 }
 
@@ -93,7 +97,8 @@
   background: #f5f7fb;
   padding: 12px 15px;
   border-radius: 8px;
-  border-left: 4px solid #CDA75E;  /* your secondary color */
+  border-left: 4px solid #CDA75E;
+  /* your secondary color */
 }
 
 .point .icon {
@@ -160,7 +165,8 @@
 }
 
 .ba-form button:hover {
-  background: transparent; /* accent color */
+  background: transparent;
+  /* accent color */
   border: 1px solid #C4585F;
   transform: translateY(-4px);
   color: #C4585F;
@@ -170,7 +176,7 @@
 /* ---------------- Responsive ---------------- */
 
 @media (max-width: 900px) {
-  .ba-main{
+  .ba-main {
     padding: 30px 6%;
   }
 
@@ -200,7 +206,7 @@
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   border-top: 4px solid #425c86;
 }
@@ -244,4 +250,76 @@
   .ba-info-cards {
     grid-template-columns: 1fr;
   }
+}
+
+
+
+/*
+-------------------------
+CSS ANIMATIONS CODE
+-------------------------*/
+
+.ba-title,
+.ba-subtitle {
+  opacity: 0;
+  transform: translateX(-50px); /* start from left */
+  transition: all 0.8s ease-out;
+  text-align: center;
+}
+
+.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.delay {
+  transition-delay: 0.2s; /* subtitle appears after title */
+}
+
+
+
+/* ===== LEFT TEXT ANIMATION ===== */
+.ba-title, .ba-desc, .point {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out;
+}
+
+.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.delay { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.4s; }
+.delay-4 { transition-delay: 0.5s; }
+.delay-5 { transition-delay: 0.6s; }
+
+/* ===== LEFT CARDS ANIMATION ===== */
+.info-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.slide-in-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-bottom.delay { transition-delay: 0.2s; }
+.slide-in-bottom.delay-2 { transition-delay: 0.4s; }
+.slide-in-bottom.delay-3 { transition-delay: 0.6s; }
+
+/* ===== RIGHT FORM ANIMATION ===== */
+.ba-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 0.8s ease-out;
+}
+
+.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
 }

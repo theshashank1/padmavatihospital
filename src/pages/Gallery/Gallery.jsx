@@ -1,11 +1,4 @@
-//Red - c45857 , green - 425c86 , 
-// gold - cda75e , 
-// light blue - 548894 ,
-//  orange - e27b33
-// ebeae7
-
-
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Gallery.css";
 
 const galleryData = [
@@ -14,7 +7,7 @@ const galleryData = [
   // { id: 2, category: "patient", img: "/images/gallery/p2.jpg" },
 
   // Infrastructure
-  { id: 3, category: "infrastructure", img: "/public/gallery/galleryimg1.jpg"},
+  { id: 3, category: "infrastructure", img: "/public/gallery/galleryimg1.jpg" },
   { id: 4, category: "infrastructure", img: "/public/gallery/galleryimg2.jpg" },
   { id: 5, category: "infrastructure", img: "/public/gallery/galleryimg3.jpg" },
   { id: 6, category: "infrastructure", img: "/public/gallery/galleryimg4.jpg" },
@@ -41,61 +34,78 @@ function Gallery() {
       ? galleryData
       : galleryData.filter((item) => item.category === selectedFilter);
 
+  // HERO SECTION ANIMATION
+  const heroRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (heroRef.current) observer.observe(heroRef.current);
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current);
+    };
+  }, []);
+
+  // GALLERY SECTION ANIMATION
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const [animateLeft, setAnimateLeft] = useState(false);
+  const [animateRight, setAnimateRight] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === leftRef.current) setAnimateLeft(true);
+            if (entry.target === rightRef.current) setAnimateRight(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (leftRef.current) observer.observe(leftRef.current);
+    if (rightRef.current) observer.observe(rightRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
-      {/* -------------------- HERO SECTION -------------------- */}
-      <section className="gallery-hero">
-        <h1 className="gallery-title">Hospital Gallery</h1>
-        <p className="gallery-subtitle">
+      {/* HERO SECTION */}
+      <section className="gallery-hero" ref={heroRef}>
+        <h1 className={`gallery-title ${visible ? "slide-in-left" : ""}`}>
+          Hospital Gallery
+        </h1>
+        <p className={`gallery-subtitle ${visible ? "slide-in-left delay" : ""}`}>
           Explore our facilities, patient care moments, and dedicated doctors at work.
         </p>
       </section>
 
-      {/* -------------------- GALLERY SECTION -------------------- */}
+      {/* GALLERY SECTION */}
       <section className="gallery-main container">
-        <div className="gallery-left">
+        <div ref={leftRef} className={`gallery-left ${animateLeft ? "slide-in-left" : ""}`}>
           <h3>Filter by Category</h3>
-
           <ul className="gallery-filters">
-            <li
-              className={selectedFilter === "all" ? "active" : ""}
-              onClick={() => setSelectedFilter("all")}
-            >
-              All
-            </li>
-
-            <li
-              className={selectedFilter === "events" ? "active" : ""}
-              onClick={() => setSelectedFilter("events")}
-            >
-              Events
-            </li>
-
-            <li
-              className={selectedFilter === "patient" ? "active" : ""}
-              onClick={() => setSelectedFilter("patient")}
-            >
-              Patient Interactions
-            </li>
-
-            <li
-              className={selectedFilter === "infrastructure" ? "active" : ""}
-              onClick={() => setSelectedFilter("infrastructure")}
-            >
-              Infrastructure
-            </li>
-
-            <li
-              className={selectedFilter === "doctors" ? "active" : ""}
-              onClick={() => setSelectedFilter("doctors")}
-            >
-              Doctors at Work
-            </li>
+            <li className={selectedFilter === "all" ? "active" : ""} onClick={() => setSelectedFilter("all")}>All</li>
+            <li className={selectedFilter === "events" ? "active" : ""} onClick={() => setSelectedFilter("events")}>Events</li>
+            <li className={selectedFilter === "patient" ? "active" : ""} onClick={() => setSelectedFilter("patient")}>Patient Interactions</li>
+            <li className={selectedFilter === "infrastructure" ? "active" : ""} onClick={() => setSelectedFilter("infrastructure")}>Infrastructure</li>
+            <li className={selectedFilter === "doctors" ? "active" : ""} onClick={() => setSelectedFilter("doctors")}>Doctors at Work</li>
           </ul>
         </div>
 
-        {/* RIGHT SIDE IMAGES */}
-        <div className="gallery-right">
+        <div ref={rightRef} className={`gallery-right ${animateRight ? "slide-in-bottom" : ""}`}>
           <div className="gallery-grid">
             {filteredImages.map((img) => (
               <div className="gallery-card" key={img.id}>
@@ -108,5 +118,8 @@ function Gallery() {
     </>
   );
 }
+
+
+
 
 export default Gallery;

@@ -3,9 +3,13 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Doctors from "./pages/Doctors/Doctors";
-import Cardiology from "./pages/Department/Cardiology";
+import Departmentsinglepage from "./pages/Departmentsinglepage/Departmentsinglepage";
 import Gallery from "./pages/Gallery/Gallery";
 import Contact from "./pages/Contact/Contact";
+import Blog from "./pages/Blog/Blog";
+import BlogDetails from "./pages/Blog/BlogDetails";
+import Testimonials from "./pages/Testimonials/Testimonials";
+import Insurance from "./pages/Insurance/Insurance";
 import Bookappoinment from "./pages/Bookappoinment/Bookappoinment";
 import Footer from "./components/Footer/Footer";
 
@@ -18,12 +22,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/Doctors" element={<Doctors />} />
-        <Route path="/Department/Cardiology" element={<Cardiology />} />
+        <Route path="/departments/:slug" element={<Departmentsinglepage />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/Contact" element={<Contact />} />
-
-        {/* Correct Route */}
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
+        <Route path="/Testimonials" element={<Testimonials />} />
         <Route path="/Bookappoinment" element={<Bookappoinment />} />
+        <Route path="/Insurance" element={<Insurance/>} />
       </Routes>
 
       <Footer />

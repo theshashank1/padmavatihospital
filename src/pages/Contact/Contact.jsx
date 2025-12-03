@@ -1,25 +1,121 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Contact.css";
 import { FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
 
 function Contact() {
+
+  // CONTACT HERO ANIMATION
+  const contactHeroRef = useRef(null);
+  const [contactHeroVisible, setContactHeroVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setContactHeroVisible(true);
+            observer.unobserve(entry.target); // animate ONCE
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (contactHeroRef.current) observer.observe(contactHeroRef.current);
+
+    return () => {
+      if (contactHeroRef.current) observer.unobserve(contactHeroRef.current);
+    };
+  }, []);
+
+  // CONTACT INFO SECTION ANIMATION
+  const ciSectionRef = useRef(null);
+  const [ciVisible, setCiVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCiVisible(true);
+            observer.unobserve(entry.target); // animate only once
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ciSectionRef.current) observer.observe(ciSectionRef.current);
+
+    return () => {
+      if (ciSectionRef.current) observer.unobserve(ciSectionRef.current);
+    };
+  }, []);
+
+
+
+  // CONTACT SEND MESSAGE SECTION ANIMATION
+
+
+  const contactLeftRef = useRef(null);
+  const contactRightRef = useRef(null);
+
+  const [contactAnimateLeft, setContactAnimateLeft] = useState(false);
+  const [contactAnimateRight, setContactAnimateRight] = useState(false);
+
+  useEffect(() => {
+    const contactObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+
+            if (entry.target === contactLeftRef.current) {
+              setContactAnimateLeft(true);
+            }
+
+            if (entry.target === contactRightRef.current) {
+              setContactAnimateRight(true);
+            }
+
+            contactObserver.unobserve(entry.target); // animate only once
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (contactLeftRef.current) contactObserver.observe(contactLeftRef.current);
+    if (contactRightRef.current) contactObserver.observe(contactRightRef.current);
+
+    return () => contactObserver.disconnect();
+  }, []);
+
+
+
+
   return (
     <div className="contact-page">
 
       {/* ---------------- HERO SECTION ---------------- */}
-      <section className="contact-hero" data-aos="fade-down">
+      <section className="contact-hero" ref={contactHeroRef}>
         <div className="container">
-          <h1>Contact Us</h1>
-          <p>We’re here to assist you with any medical support you need.</p>
+          <h1 className={contactHeroVisible ? "slide-in-left" : ""}>
+            Contact Us
+          </h1>
+
+          <p className={contactHeroVisible ? "slide-in-left delay" : ""}>
+            We’re here to assist you with any medical support you need.
+          </p>
         </div>
       </section>
 
+
       {/* ---------------- CONTACT INFO BOXES SECTION ---------------- */}
-      <section className="ci-section">
+      <section className="ci-section" ref={ciSectionRef}>
         <div className="ci-container">
 
           {/* Emergency */}
-          <div className="ci-card" data-aos="fade-up">
+          <div className={`ci-card ${ciVisible ? "slide-up" : ""}`}>
             <div className="ci-icon"><FaPhoneAlt /></div>
             <h3>Emergency</h3>
             <p className="ci-main">040-27007111</p>
@@ -27,16 +123,15 @@ function Contact() {
           </div>
 
           {/* Appointments */}
-          <div className="ci-card" data-aos="fade-up" data-aos-delay="100">
+          <div className={`ci-card ${ciVisible ? "slide-up delay-1" : ""}`}>
             <div className="ci-icon"><FaPhoneAlt /></div>
             <h3>Appointments</h3>
-            {/* <p className="ci-main">040-27007111</p> */}
-            <p className="ci-main">9160668686 ,  9866635947</p>
+            <p className="ci-main">9160668686 , 9866635947</p>
             <p className="ci-sub">Mon–Sat, 9AM–6PM</p>
           </div>
 
           {/* Email */}
-          <div className="ci-card" data-aos="fade-up" data-aos-delay="200">
+          <div className={`ci-card ${ciVisible ? "slide-up delay-2" : ""}`}>
             <div className="ci-icon"><FaEnvelope /></div>
             <h3>Email</h3>
             <p className="ci-main">padmavatimedicalcenter2010@gmail.com</p>
@@ -44,7 +139,7 @@ function Contact() {
           </div>
 
           {/* Hours */}
-          <div className="ci-card" data-aos="fade-up" data-aos-delay="300">
+          <div className={`ci-card ${ciVisible ? "slide-up delay-3" : ""}`}>
             <div className="ci-icon"><FaClock /></div>
             <h3>Hours</h3>
             <p className="ci-main">24/7 Emergency</p>
@@ -55,11 +150,15 @@ function Contact() {
       </section>
 
       {/* ---------------- SEND MESSAGE + VISIT US SECTION ---------------- */}
+
       <section className="contact-main">
         <div className="contact-main-container">
 
           {/* -------- LEFT SIDE : FORM -------- */}
-          <div className="contact-form">
+          <div
+            ref={contactLeftRef}
+            className={`contact-form slide-left ${contactAnimateLeft ? "active" : ""}`}
+          >
             <h2>Send Us a Message</h2>
 
             <form>
@@ -83,16 +182,19 @@ function Contact() {
           </div>
 
           {/* -------- RIGHT SIDE : ADDRESS + MAP -------- */}
-          <div className="contact-right">
-
-            {/* Address Box */}
+          <div
+            ref={contactRightRef}
+            className={`contact-right slide-right ${contactAnimateRight ? "active" : ""}`}
+          >
             <div className="visit-card">
               <h2>Visit Us</h2>
               <div className="visit-box">
                 <h4>🏥 Hospital Address</h4>
-                <p> Plot No. 12-13-60, Main Road, Tarnaka &
-                  <br />Plot No. 12-13-67/2, Sadhashiv Nagar, Lane Adj. to Sanman Hotel, Street No. 5, Tarnaka, Secunderabad
-                  <br /> 500017</p>
+                <p>
+                  Plot No. 12-13-60, Main Road, Tarnaka<br />
+                  Plot No. 12-13-67/2, Sadhashiv Nagar, Lane Adj. to Sanman Hotel,<br />
+                  Street No. 5, Tarnaka, Secunderabad – 500017
+                </p>
               </div>
             </div>
 
@@ -104,15 +206,15 @@ function Contact() {
                 width="100%"
                 height="300"
                 style={{ border: 0, borderRadius: "12px" }}
-                allowFullScreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-
           </div>
+
         </div>
       </section>
+
+
 
 
     </div>

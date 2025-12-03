@@ -6,24 +6,23 @@
 }
 
 body {
-  padding-top: 0px; /* Height of navbar to prevent content overlap */
+  padding-top: 0px;
+  /* Height of navbar to prevent content overlap */
 }
 
 .pmc-navbar {
-  width: 100%;        
+  width: 100%;
   background: #425c86;
-  padding: 25px 0;
+  padding: 10px 0;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 18px 0;
-
   /* GLASSMORPHISM */
-  background: rgba(66, 92, 134, 0.45);     
+  background: rgba(66, 92, 134, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(205, 167, 94, 0.2);  
+  border-bottom: 1px solid rgba(205, 167, 94, 0.2);
 }
 
 
@@ -34,11 +33,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* border: 1px solid black; */
 }
 
 /* LOGO */
 .pmc-logo img {
-  height: 50px;
+  height: 80px;
+  /* width: 100px; */
 }
 
 /* DESKTOP NAV */
@@ -86,7 +87,7 @@ body {
   /* border: 2px solid #ebeae7; */
   box-shadow: 0 0 5px rgb(196, 88, 95, 0.6);
 }
-  
+
 
 /* DROPDOWN */
 .pmc-dropdown {
@@ -96,12 +97,13 @@ body {
 .dropbtn {
   color: #000000;
   cursor: pointer;
-  padding: 20px 0px 25px 0px;
+  padding: 20px 0px 45px 0px;
   font-size: 17px;
   /* border: 1px solid black; */
 }
 
-.dropbtn:hover, .dropbtn.active {
+.dropbtn:hover,
+.dropbtn.active {
   color: #425c86;
 }
 
@@ -109,13 +111,13 @@ body {
   display: none;
   border: 1px solid black;
   position: absolute;
-  top: 40px;             
+  top: 60px;
   left: 50%;
   transform: translateX(-35%);
   padding: 20px;
   background: #fff;
   /* width: 750px;         */
-  max-width: 95vw;        
+  max-width: 95vw;
   z-index: 9999;
   padding: 20px;
   border-radius: 12px;
@@ -124,7 +126,7 @@ body {
   backdrop-filter: blur(55px);
   -webkit-backdrop-filter: blur(55px); */
   border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -137,19 +139,20 @@ body {
   grid-template-columns: repeat(4, 1fr);
   /* gap: 12px; */
   gap: 10px 20px;
-  width: 750px; 
+  width: 750px;
 
 }
 
 .grid-4 a {
-  color: #425c86!important;
+  color: #425c86 !important;
   text-decoration: none;
   font-size: 15px;
-  /* padding: 5px 0; */ /* increases clickable area */
+  /* padding: 5px 0; */
+  /* increases clickable area */
 }
 
 .grid-4 a:hover {
-  color: #C4585F!important;
+  color: #C4585F !important;
 }
 
 /* MOBILE */
@@ -172,7 +175,7 @@ body {
   gap: 20px;
 }
 
-.mobile-menu li a{
+.mobile-menu li a {
   color: #ebeae7;
 }
 
@@ -182,19 +185,27 @@ body {
 }
 
 @keyframes slideDown {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobile-submenu {
   display: none;
-  background: rgba(255,255,255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   padding-left: 15px;
   margin-top: 8px;
-  border: 1px solid rgba(255,255,255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   /* NEW: scrollable */
-  max-height: 250px;       /* adjust as needed */   
+  max-height: 250px;
+  /* adjust as needed */
   overflow-y: auto;
 }
 
@@ -205,7 +216,7 @@ body {
 }
 
 .mobile-submenu::-webkit-scrollbar-thumb {
-  background-color: rgba(196,88,95,0.6);
+  background-color: rgba(196, 88, 95, 0.6);
   border-radius: 3px;
 }
 
@@ -250,6 +261,7 @@ body {
   transition: 0.3s ease-in-out;
   font-weight: 500;
 }
+
 .appointment-mobile-btn:active {
   background: transparent;
   color: #C4585F !important;
@@ -267,7 +279,8 @@ body {
 
 @media (max-width: 900px) {
   body {
-    padding-top: 0px; /* Height of navbar to prevent content overlap */
+    padding-top: 0px;
+    /* Height of navbar to prevent content overlap */
   }
 
   .dropdown-menu {
@@ -276,7 +289,7 @@ body {
     transform: none;
   }
 
-   .desktop-only {
+  .desktop-only {
     display: none;
   }
 
@@ -284,12 +297,22 @@ body {
     display: block;
   }
 
+  .pmc-logo img {
+    height: 50px;
+    /* width: 100px; */
+  }
+
+
 }
 
 /* Remove mobile tap highlight */
-a, Link, span, button, .appointment-mobile-btn {
+a,
+Link,
+span,
+button,
+.appointment-mobile-btn {
   -webkit-tap-highlight-color: transparent;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 
@@ -301,7 +324,7 @@ a, Link, span, button, .appointment-mobile-btn {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 12px 20px;
-  width: fit-content; 
+  width: fit-content;
 }
 
 .grid-2 a {
@@ -313,8 +336,3 @@ a, Link, span, button, .appointment-mobile-btn {
 .grid-2 a:hover {
   color: #C4585F !important;
 }
-
-
-
-
-

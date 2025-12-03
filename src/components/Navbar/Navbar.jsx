@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import departmentsData from "../../data/departmentsinglepagedata";
+
+
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,7 +34,7 @@ function Navbar() {
 
         {/* LOGO */}
         <Link to="/" className="pmc-logo">
-          <img src="/logo.png" alt="Padmavati Medical Center" />
+          <img src="/padmavathilogo.png" alt="Padmavati Medical Center" />
         </Link>
 
         {/* DESKTOP MENU */}
@@ -56,25 +59,13 @@ function Navbar() {
               className={dropdownOpen ? "dropdown-menu show" : "dropdown-menu"}
             >
               <div className="grid-4">
-                <Link to="/departments/cardiologist">Cardiologist</Link>
-                <Link to="/departments/general-physician">General Physician</Link>
-                <Link to="/departments/diabetology">Diabetology</Link>
-                <Link to="/departments/gastroenterologist">Gastroenterologist</Link>
-                <Link to="/departments/pediatrician">Pediatrician</Link>
-
-                <Link to="/departments/neurophysician">Neurophysician</Link>
-                <Link to="/departments/pulmonologist">Pulmonologist</Link>
-                <Link to="/departments/orthopedician">Orthopedician</Link>
-                <Link to="/departments/nephrologist">Nephrologist</Link>
-
-                <Link to="/departments/general-surgeon">General Surgeon</Link>
-                <Link to="/departments/anaesthetist">Anaesthetist</Link>
-                <Link to="/departments/pathologist">Pathologist</Link>
-                <Link to="/departments/urologist">Urologist</Link>
-
-                <Link to="/departments/dermatologist">Dermatologist</Link>
-                <Link to="/departments/physiotherapist">Physiotherapist</Link>
+                {departmentsData.map((dept) => (
+                  <Link key={dept.id} to={`/departments/${dept.slug}`}>
+                    {dept.name}
+                  </Link>
+                ))}
               </div>
+
             </div>
           </li>
 
@@ -95,9 +86,9 @@ function Navbar() {
             >
               <div className="grid-2">
                 <Link to="/gallery">Gallery</Link>
-                <Link to="/insurance">Insurance</Link>
-                <Link to="/blogs">Blogs</Link>
-                <Link to="/testimonials">Testimonials</Link>
+                <Link to="/Insurance">Insurance</Link>
+                <Link to="/Blog">Blogs</Link>
+                <Link to="/Testimonials">Testimonials</Link>
               </div>
             </div>
           </li>
@@ -129,22 +120,18 @@ function Navbar() {
             </span>
 
             <ul className={dropdownOpen ? "mobile-submenu show" : "mobile-submenu"}>
-              <li><Link to="/departments/cardiologist">Cardiologist</Link></li>
-              <li><Link to="/departments/general-physician">General Physician</Link></li>
-              <li><Link to="/departments/diabetology">Diabetology</Link></li>
-              <li><Link to="/departments/gastroenterologist">Gastroenterologist</Link></li>
-              <li><Link to="/departments/pediatrician">Pediatrician</Link></li>
-              <li><Link to="/departments/neurophysician">Neurophysician</Link></li>
-              <li><Link to="/departments/pulmonologist">Pulmonologist</Link></li>
-              <li><Link to="/departments/orthopedician">Orthopedician</Link></li>
-              <li><Link to="/departments/nephrologist">Nephrologist</Link></li>
-              <li><Link to="/departments/general-surgeon">General Surgeon</Link></li>
-              <li><Link to="/departments/anaesthetist">Anaesthetist</Link></li>
-              <li><Link to="/departments/pathologist">Pathologist</Link></li>
-              <li><Link to="/departments/urologist">Urologist</Link></li>
-              <li><Link to="/departments/dermatologist">Dermatologist</Link></li>
-              <li><Link to="/departments/physiotherapist">Physiotherapist</Link></li>
+              {departmentsData.map((dept) => (
+                <li key={dept.id}>
+                  <Link
+                    to={`/departments/${dept.slug}`}  // use slug here
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {dept.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
+
           </li>
 
           {/* <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link></li> */}
@@ -157,9 +144,9 @@ function Navbar() {
 
             <ul className={moreDropdownOpen ? "mobile-submenu show" : "mobile-submenu"}>
               <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/insurance">Insurance</Link></li>
-              <li><Link to="/blogs">Blogs</Link></li>
-              <li><Link to="/testimonials">Testimonials</Link></li>
+              <li><Link to="/Insurance">Insurance</Link></li>
+              <li><Link to="/Blog">Blogs</Link></li>
+              <li><Link to="/Testimonials">Testimonials</Link></li>
             </ul>
           </li>
 
